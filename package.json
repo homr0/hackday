@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/homr0/hackday#readme",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "morgan": "^1.9.1"
   },
   "dependencies": {
     "express": "^4.17.1"

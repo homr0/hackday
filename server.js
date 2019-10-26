@@ -1,29 +1,29 @@
-const dna = ["A", "C", "G", "T"];
+const express = require("express");
+var path = require("path");
+const logger = require("morgan");
 
-const asciiDNA = input => {
-  let dnaStr = "";
+const app = express();
+const PORT = process.env.PORT || 8000;
 
-  console.log(`Original String: ${input}`);
-  for (let i = 0; i < input.length; i++) {
-    console.log(`Char: ${input.charAt(i)}`);
-    let charCode = input.charCodeAt(i);
-    console.log(`Char code: ${charCode}`);
-    charCode = parseInt(charCode).toString(4);
-    console.log(`Base 4: ${charCode}`);
+// Express middleware
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-    let dnaFrag = "";
+//  Requires the controllers
+const dna = require("./controllers/dna");
 
-    for (let j = 0; j < charCode.length; j++) {
-      dnaFrag += dna[parseInt(charCode.charAt(j))];
-    }
+//  Routes for the server
+//  Gets the index page
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
-    while (dnaFrag.length < 4) {
-      dnaFrag = dna[0] + dnaFrag;
-    }
+//  Receives an ASCII string which is then converted into a DNA string
+app.post("/dna", (req, res) => {
+  res.json(dna(req.body));
+});
 
-    dnaStr += dnaFrag;
-  }
-  console.log(`DNA String: ${dnaStr}`);
-}
-
-asciiDNA("aAbB");
+app.listen(PORT, () => {
+  console.log(`🌎 ==> API server now on port ${PORT}!`);
+});
