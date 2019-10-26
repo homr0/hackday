@@ -1,10 +1,11 @@
 {
   "name": "hackday",
   "version": "1.0.0",
-  "description": "<p align=\"center\">\r   <img \r     alt=\"Inland Empire Software Development Logo\" \r     src=\"https://user-images.githubusercontent.com/36907562/55706662-9ae24f80-5996-11e9-9557-3a8440c5926a.png\" \r     width=\"100px\" >\r </p>\r <h1 align=\"center\"> \r   Hack Day\r </h1>\r <p align=\"center\">\r   <a href=\"https://www.facebook.com/iesdinc/\">\r     <img \r       alt=\"Facebook logo\" \r       src=\"https://en.facebookbrand.com/wp-content/uploads/2016/05/flogo_rgb_hex-brc-site-250.png\" \r       width=\"35px\">\r   </a>\r   <a href=\"https://join.slack.com/t/ie-sd/shared_invite/enQtNTY1NDU3MTg4NDE5LWZiNjViZmQ0ODhmN2Q0NTg1NWQwZTcyODEyYmM4ZGYxNjZkM2UxYzU5OTZkMDY4YzljYjIwZGY4YmEyNzRlNjA\">\r     <img \r       alt=\"Slack logo\"\r       src=\"https://cdn-images-1.medium.com/max/1600/1*rncLjp_nxRi08Y8AKZCJVA.png\"\r       width=\"40px\">\r   </a>\r </p>",
-  "main": "index.js",
+  "description": "IESD Hack Day October 2019",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
