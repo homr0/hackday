@@ -16,7 +16,7 @@ const dna = require("./controllers/dna");
 //  Routes for the server
 //  Gets the index page
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "views/index.html"));
 });
 
 //  Receives an ASCII string which is then converted into a DNA string
