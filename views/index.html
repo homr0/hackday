@@ -14,6 +14,7 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body>
@@ -22,7 +23,11 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="ascii" class="materialize-textarea" placeholder="Type in some ASCII"></textarea>
+              <textarea
+                id="ascii"
+                class="materialize-textarea"
+                placeholder="Type in some ASCII"
+              ></textarea>
               <label for="ascii">ASCII</label>
               <button
                 class="btn waves-effect waves-light"
@@ -62,8 +67,8 @@
           event.preventDefault();
 
           $(this).prop("checked")
-          ? $("label[for=output]").text("Get an RNA string")
-          : $("label[for=output]").text("Get a DNA string");
+            ? $("label[for=output]").text("Get an RNA string")
+            : $("label[for=output]").text("Get a DNA string");
         });
 
         $("#submit").click(function(event) {
@@ -75,15 +80,15 @@
           //  Gets the AJAX url
           let urlStr = "";
           $("#switchDna").prop("checked")
-            ? urlStr = "/rna"
-            : urlStr = "/dna";
+            ? (urlStr = "/rna")
+            : (urlStr = "/dna");
 
           $.ajax({
             url: "/dna",
             data: {
               input: input
             },
-            method: "POST",
+            method: "POST"
           })
             .then(data => {
               $("label[for=output]").text(data);
