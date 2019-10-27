@@ -7,6 +7,11 @@ module.exports = app => {
     res.json(dna(req.body.input)).status(200);
   });
 
+  //  Receives an ASCII string which is then converted into an RNA string
+  app.post("/rna", (req, res) => {
+    res.json(dna(req.body.input, true)).status(200);
+  });
+
   //  Gets the index page
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/index.html"));

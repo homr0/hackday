@@ -26,8 +26,7 @@
               <label for="ascii">ASCII</label>
               <button
                 class="btn waves-effect waves-light"
-                type="submit"
-                name="action"
+                name="submit"
                 id="submit"
               >
                 Submit
@@ -52,11 +51,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script>
       $(document).ready(function() {
-        $("#submit").click(function(){
-          //  Run AJAX
+        $("#submit").click(function(event) {
+          event.preventDefault();
 
+          //  Clean up the input
+          let input = $("#ascii").val();
+
+          $.ajax({
+            url: "/dna",
+            data: {
+              input: input
+            },
+            method: "POST",
+          })
+            .then(data => {
+              $("label[for=output]").text(data);
+            })
+            .catch(err => console.log(err));
         });
-      };
+      });
     </script>
   </body>
 </html>
