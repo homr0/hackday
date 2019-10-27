@@ -23,7 +23,7 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="ascii" class="materialize-textarea"></textarea>
+              <textarea id="ascii" class="materialize-textarea" placeholder="Type in some ASCII"></textarea>
               <label for="ascii">ASCII</label>
               <button
                 class="btn waves-effect waves-light"
@@ -42,14 +42,14 @@
               class="materialize-textarea"
               disabled
             ></textarea>
-            <label for="output">DNA</label>
+            <label for="output">Get a DNA string</label>
           </div>
         </form>
       </div>
       <div class="switch">
         <label>
           DNA
-          <input type="checkbox" />
+          <input type="checkbox" id="switchDna" />
           <span class="lever"></span>
           RNA
         </label>
@@ -59,11 +59,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script>
       $(document).ready(function() {
+        $("#switchDna").on("change", function(event) {
+          event.preventDefault();
+
+          $(this).prop("checked")
+          ? $("label[for=output]").text("Get an RNA string")
+          : $("label[for=output]").text("Get a DNA string");
+        });
+
         $("#submit").click(function(event) {
           event.preventDefault();
 
           //  Clean up the input
           let input = $("#ascii").val();
+
+          //  Gets the AJAX url
+          let urlStr = "";
+          $("#switchDna").prop("checked")
+            ? urlStr = "/rna"
+            : urlStr = "/dna";
 
           $.ajax({
             url: "/dna",
