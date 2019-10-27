@@ -1,0 +1,2 @@
+[Sun, 27 Oct 2019 01:33:09 GMT]GET / - took 5.763 ms to complete
+[Sun, 27 Oct 2019 01:33:19 GMT]POST /dna cat took 25.529 ms to complete
