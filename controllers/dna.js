@@ -1,7 +1,10 @@
 //  Array for DNA number to equivalent character
 const dna = ["A", "C", "G", "T"];
 
-const asciiDna = input => {
+//  Array for RNA number to equivalent character
+const rna = ["A", "C", "G", "U"];
+
+const asciiDna = (input, isRNA = false) => {
   let dnaStr = "";
 
   for (let i = 0; i < input.length; i++) {
@@ -15,12 +18,16 @@ const asciiDna = input => {
     
     //  Gets the DNA letters for each ASCII base-4 number
     for (let j = 0; j < charCode.length; j++) {
-      dnaFrag += dna[parseInt(charCode.charAt(j))];
+      (isRNA) 
+      ? dnaFrag += rna[parseInt(charCode.charAt(j))]
+      : dnaFrag += dna[parseInt(charCode.charAt(j))];
     }
 
     //  Makes sure that the DNA fragment is of length 4
     while (dnaFrag.length < 4) {
-      dnaFrag = dna[0] + dnaFrag;
+      (isRNA)
+      ? dnaFrag = rna[0] + dnaFrag
+      : dnaFrag = dna[0] + dnaFrag;
     }
 
     dnaStr += dnaFrag;
