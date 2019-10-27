@@ -27,10 +27,42 @@
 </p>
 
 
-## **Getting Started**
+# Hack Day October 2019
 
-Look under branches and find the appropriate month and year for the Hack Day you're participating in. Each branch has its own documentation for getting started. 
+## Challenge
 
-If you have any questions, please ask on our [Slack](https://ie-sd.slack.com). We welcome everyone to our Slack, so don't be afraid to join! Have fun coding!
+**Description**: DNA is a very stable and compact storage medium. The language of DNA consists of four bases, each of which may be thought of as a character in the DNA alphabet. For our purposes, these characters (in order) are: A, T, G, and C. We would like to store digital data in DNA!
 
-**<a href="https://bit.ly/2C0umfQ">Join our Slack!</a>**
+**Challenge**: Construct a program in the language of your choice that satisfies as many of the following objectives as possible.
+
+## Tasks
+
+**Objective 1 (COMPLETED)**: (20 pts) Provide a mechanism to encode arbitrary standard ASCII text strings as DNA. Recall that ASCII characters have numeric values of 0 to 255.
+
+Input: a, Output: TGAT
+
+Input: cat, Output: TGACTGATTCTA
+
+**Objective 2 (COMPLETED)**: (30 pts) Using your favorite unit test framework, write the unit tests you feel are necessary to adequately test the code you wrote as your answer to object one.
+
+**Objective 3 (COMPLETED)**: (30 pts) Create a simple user interface for users to interact with your program - input/output for your program.
+
+**Objective 4 (COMPLETED)**: (30 pts) RNA is very similar to DNA, but it replaces T with U. Make your program capable of encoding as either DNA or RNA.
+
+**Objective 5**: (40 pts) Provide an interface for identifying standard ASCII text substrings encoded as DNA; the interface should provide the zero-based index where the substring begins or -1 if it does not exist.
+
+**Objective 6**: (40 pts) DNA actually consists of two, complementary strands that are attached in such a way that every A matches T and G matches C (and the inverses). Given a complementary strand of DNA, output the ASCII equivalent of the primary strand.
+
+Examples:
+
+Input: ACTGACTAAGAT, Output: cat
+
+**Objective 7 (COMPLETED)**: (50 pts) Add the ability to log all requests. Store the input, the time it took to convert it from ASCII text to DNA or RNA, output and a time stamp.
+
+Objective 8: (80 pts) Given two (single) strands of DNA, provide an interface that allows finding the longest common subsequence of the two. Recall that common subsequences need not be consecutive.
+
+## Team
+
+* Rebecca Hom - Team Lead, Backend
+* Jimmy Chen - Test Writer, Backend
+* Daniel Jacquez - Frontend

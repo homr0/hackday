@@ -21,6 +21,7 @@ app.use(logger(logFormat, {
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/views/'));
 
 //  Routes for the server
 const routes = require("./controllers/routes");
